@@ -1,5 +1,5 @@
 .App {
-  display: block;
+  display: inline-block;
 }
 
 .App-logo {
@@ -42,6 +42,17 @@
   overflow: hidden;
   text-overflow: ellipsis;
   height: 600px;
+  padding: 20px;
+  margin: 10px;
+  border: double 2px rgb(105, 102, 102);
+}
+
+.fishComp {
+  width: 400px;
+  display: inline-block;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  height: 400px;
   padding: 20px;
   margin: 10px;
   border: double 2px rgb(105, 102, 102);
