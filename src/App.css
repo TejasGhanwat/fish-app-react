@@ -1,5 +1,5 @@
 .App {
-  text-align: center;
+  display: block;
 }
 
 .App-logo {
@@ -16,7 +16,7 @@
 .App-header {
   background-color: #282c34;
   min-height: 100vh;
-  display: flex;
+  display: inline-block;
   flex-direction: column;
   align-items: center;
   justify-content: center;
@@ -35,4 +35,14 @@
   to {
     transform: rotate(360deg);
   }
+}
+.components {
+  width: 300px;
+  display: inline-block;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  height: 600px;
+  padding: 20px;
+  margin: 10px;
+  border: double 2px rgb(105, 102, 102);
 }
