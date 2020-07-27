@@ -1,4 +1,5 @@
 import React, { Component } from "react";
+import PropTypes from "prop-types";
 
 class StorePicker extends Component {
   constructor() {
@@ -7,8 +8,9 @@ class StorePicker extends Component {
   }
   goToStore = (event) => {
     event.preventDefault();
-    console.log("You changed URL");
-    console.log(this.storeInput);
+    const storeId = this.storeInput.value;
+    console.log("we are goin to", { storeId });
+    this.props.history.push(`store/${storeId}`);
 
     //first grab the text from the box
     //second we are going to transition to store
@@ -30,5 +32,9 @@ class StorePicker extends Component {
     );
   }
 }
+
+StorePicker.contextTypes = {
+  router: PropTypes.object,
+};
 
 export default StorePicker;
