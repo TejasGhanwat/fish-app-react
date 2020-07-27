@@ -4,7 +4,7 @@ import AddFishForm from "./addFishForm";
 class Inventory extends Component {
   render() {
     return (
-      <div className='components'>
+      <div>
         Inventory
         <AddFishForm addFish={this.props.addFish} />
         <button onClick={this.props.loadSamples}>Load Sample Fishes</button>

@@ -37,9 +37,10 @@
   }
 }
 .components {
-  width: 300px;
+  overflow-wrap: break-word;
+  width: 400px;
   display: inline-block;
-  overflow: hidden;
+  overflow: auto;
   text-overflow: ellipsis;
   height: 600px;
   padding: 20px;
@@ -48,9 +49,10 @@
 }
 
 .fishComp {
-  width: 400px;
+  overflow-wrap: break-word;
+  width: 300px;
   display: inline-block;
-  overflow: hidden;
+  overflow: auto;
   text-overflow: ellipsis;
   height: 400px;
   padding: 20px;

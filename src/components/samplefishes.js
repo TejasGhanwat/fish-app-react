@@ -4,7 +4,7 @@ const fishes = {
     image: "https://cdn2.webdamdb.com/1280_k9IIEjOEl10Z.png?1501272630",
     desc: "Everyones favorite, gotta love it",
     price: 23,
-    status: "available",
+    status: "unavailable",
   },
   fish2: {
     name: "Lobster",

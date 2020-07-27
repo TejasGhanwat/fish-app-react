@@ -16,6 +16,7 @@ class App extends Component {
     };
     this.addFish = this.addFish.bind(this);
     this.loadSamples = this.loadSamples.bind(this);
+    this.addToOrder = this.addToOrder.bind(this);
   }
 
   addFish(fish) {
@@ -38,19 +39,40 @@ class App extends Component {
     });
   }
 
+  addToOrder(key) {
+    //take copy of our state
+
+    const order = { ...this.state.order };
+
+    //update or add the number of fish ordered
+
+    order[key] = order[key] + 1 || 1;
+    //update our state
+    this.setState({ order });
+  }
+
   render() {
     return (
       <div className='App'>
-        <div classname='components'>
-          <Header />
+        <div className='components'>
+          {/* <Header /> */}
           <ul>
             {Object.keys(this.state.fishes).map((key) => (
-              <Fish key={key} details={this.state.fishes[key]} />
+              <Fish
+                key={key}
+                index={key}
+                details={this.state.fishes[key]}
+                addToOrder={this.addToOrder}
+              />
             ))}
           </ul>
         </div>
-        <Order />
-        <Inventory addFish={this.addFish} loadSamples={this.loadSamples} />
+        <div className='components'>
+          <Order fishes={this.state.fishes} order={this.state.order} />
+        </div>
+        <div className='components'>
+          <Inventory addFish={this.addFish} loadSamples={this.loadSamples} />
+        </div>
       </div>
     );
   }
