@@ -22,7 +22,8 @@ class AddFishForm extends Component {
 
   render() {
     return (
-      <div>
+      <div className='inventory'>
+        <h4>Add Fish Form</h4>
         <form
           ref={(input) => (this.fishForm = input)}
           onSubmit={(e) => this.createFish(e)}

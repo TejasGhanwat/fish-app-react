@@ -15,9 +15,12 @@ class App extends Component {
       fishes: {},
       order: {},
     };
+
+    this.updateFish = this.updateFish.bind(this);
     this.addFish = this.addFish.bind(this);
     this.loadSamples = this.loadSamples.bind(this);
     this.addToOrder = this.addToOrder.bind(this);
+    this.removeFish = this.removeFish.bind(this);
   }
 
   UNSAFE_componentWillMount() {
@@ -43,7 +46,7 @@ class App extends Component {
     base.removeBinding(this.ref);
   }
 
-  componentWillUpdate(nextProps, nextState) {
+  UNSAFE_componentWillUpdate(nextProps, nextState) {
     localStorage.setItem(
       `order-${this.props.match.params.storeId}`,
       JSON.stringify(nextState.order)
@@ -62,6 +65,18 @@ class App extends Component {
     this.setState({
       fishes: fishes,
     });
+  }
+
+  updateFish(key, updatedFish) {
+    const fishes = { ...this.state.fishes };
+    fishes[key] = updatedFish;
+    this.setState({ fishes });
+  }
+
+  removeFish(key) {
+    const fishes = { ...this.state.fishes };
+    fishes[key] = null;
+    this.setState({ fishes });
   }
 
   loadSamples() {
@@ -83,7 +98,6 @@ class App extends Component {
   }
 
   render() {
-    console.log(this.props);
     return (
       <div className='App'>
         <div className='components'>
@@ -107,7 +121,13 @@ class App extends Component {
           />
         </div>
         <div className='components'>
-          <Inventory addFish={this.addFish} loadSamples={this.loadSamples} />
+          <Inventory
+            addFish={this.addFish}
+            loadSamples={this.loadSamples}
+            fishes={this.state.fishes}
+            updateFish={this.updateFish}
+            removeFish={this.removeFish}
+          />
         </div>
       </div>
     );

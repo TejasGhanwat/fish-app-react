@@ -59,3 +59,9 @@
   margin: 10px;
   border: double 2px rgb(105, 102, 102);
 }
+
+.inventory {
+  border: solid 1px black;
+  padding: 10px;
+  margin-bottom: 25px;
+}
