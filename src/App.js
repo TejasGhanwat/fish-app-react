@@ -21,14 +21,33 @@ class App extends Component {
   }
 
   UNSAFE_componentWillMount() {
+    //this runs right before render
     this.ref = base.syncState(`MyStore/fishes`, {
       context: this,
       state: "fishes",
     });
+
+    const localStorageRef = localStorage.getItem(
+      `order-${this.props.match.params.storeId}`
+    );
+
+    if (localStorageRef) {
+      //update our App COmponents order state
+      this.setState({
+        order: JSON.parse(localStorageRef),
+      });
+    }
   }
 
   componentWillUnmount() {
     base.removeBinding(this.ref);
+  }
+
+  componentWillUpdate(nextProps, nextState) {
+    localStorage.setItem(
+      `order-${this.props.match.params.storeId}`,
+      JSON.stringify(nextState.order)
+    );
   }
 
   addFish(fish) {
@@ -64,6 +83,7 @@ class App extends Component {
   }
 
   render() {
+    console.log(this.props);
     return (
       <div className='App'>
         <div className='components'>
@@ -80,7 +100,11 @@ class App extends Component {
           </ul>
         </div>
         <div className='components'>
-          <Order fishes={this.state.fishes} order={this.state.order} />
+          <Order
+            fishes={this.state.fishes}
+            order={this.state.order}
+            params={this.props.params}
+          />
         </div>
         <div className='components'>
           <Inventory addFish={this.addFish} loadSamples={this.loadSamples} />
