@@ -66,7 +66,7 @@ class Inventory extends Component {
           placeholder='Fish Name'
         />
         <br />
-        <button onClick={this.props.removeFish}>Remove Fish</button>
+        <button onClick={() => this.props.removeFish(key)}>Remove Fish</button>
         <br />
       </div>
     );
