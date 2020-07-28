@@ -5,6 +5,7 @@ import Header from "./components/header";
 import Order from "./components/order";
 import Inventory from "./components/inventory";
 import SampleFishes from "./components/samplefishes.js";
+import base from "./base";
 
 class App extends Component {
   constructor() {
@@ -17,6 +18,17 @@ class App extends Component {
     this.addFish = this.addFish.bind(this);
     this.loadSamples = this.loadSamples.bind(this);
     this.addToOrder = this.addToOrder.bind(this);
+  }
+
+  UNSAFE_componentWillMount() {
+    this.ref = base.syncState(`MyStore/fishes`, {
+      context: this,
+      state: "fishes",
+    });
+  }
+
+  componentWillUnmount() {
+    base.removeBinding(this.ref);
   }
 
   addFish(fish) {

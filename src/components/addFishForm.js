@@ -38,8 +38,8 @@ class AddFishForm extends Component {
             placeholder='Fish Price'
           />
           <select ref={(input) => (this.status = input)}>
-            <option value='avaliable'>Fresh !</option>
-            <option value='unavaliable'>Sold Out! </option>
+            <option value='available'>Fresh !</option>
+            <option value='unavailable'>Sold Out! </option>
           </select>
 
           <textarea

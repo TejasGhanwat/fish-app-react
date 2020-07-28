@@ -2,9 +2,9 @@ import React, { Component } from "react";
 
 class Fish extends Component {
   render() {
-    const { details, index } = this.props;
+    const { index } = this.props;
     const isAvailable = this.props.details.status === "available";
-    const buttonText = isAvailable ? "Add to Order" : "Sold Out!";
+
     return (
       <div className='fishComp'>
         <h3>{this.props.details.name}</h3>
@@ -19,7 +19,7 @@ class Fish extends Component {
         <p>Status: {this.props.details.status}</p>
         <p>Description: {this.props.details.desc}</p>
         <button onClick={() => this.props.addToOrder(index)}>
-          {buttonText}{" "}
+          {isAvailable ? "Add to Order" : "Sold Out"}
         </button>
       </div>
     );
