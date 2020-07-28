@@ -21,6 +21,7 @@ class App extends Component {
     this.loadSamples = this.loadSamples.bind(this);
     this.addToOrder = this.addToOrder.bind(this);
     this.removeFish = this.removeFish.bind(this);
+    this.removeFromOrder = this.removeFromOrder.bind(this);
   }
 
   UNSAFE_componentWillMount() {
@@ -97,6 +98,12 @@ class App extends Component {
     this.setState({ order });
   }
 
+  removeFromOrder(key) {
+    const order = { ...this.state.order };
+    delete order[key];
+    this.setState({ order });
+  }
+
   render() {
     return (
       <div className='App'>
@@ -118,6 +125,7 @@ class App extends Component {
             fishes={this.state.fishes}
             order={this.state.order}
             params={this.props.params}
+            removeFromOrder={this.removeFromOrder}
           />
         </div>
         <div className='components'>
