@@ -17,17 +17,25 @@ class StorePicker extends Component {
   };
   render() {
     return (
-      <div>
-        <form onSubmit={this.goToStore}>
-          <input
-            type='text'
-            required
-            placeholder='Store_Name'
-            defaultValue='MyStore'
-            ref={(input) => (this.storeInput = input)}
-          />
-          <button type='submit'>Visit Store</button>
-        </form>
+      <div className='storepicker'>
+        <div className='mystore'>
+          <div>
+            <h4 className='title'>Catch of The Day</h4>
+            <form className='myForm' onSubmit={this.goToStore}>
+              <input
+                style={{ display: "None" }}
+                type='text'
+                required
+                placeholder='Store_Name'
+                defaultValue='MyStore'
+                ref={(input) => (this.storeInput = input)}
+              />
+              <button className='visit' type='submit'>
+                Visit Store
+              </button>
+            </form>
+          </div>
+        </div>
       </div>
     );
   }

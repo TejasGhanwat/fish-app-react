@@ -111,3 +111,55 @@
 .count-leave-active {
   transform: translateY(-100%);
 }
+
+.storepicker {
+  text-align: center;
+  height: 100vh;
+  width: auto;
+  text-align: center;
+  background-image: url(C:/Users/tejas/Desktop/Fish.jpg);
+  background-size: cover;
+}
+
+.mystore {
+  border-radius: 5px;
+  margin-top: 100px;
+  display: inline-block;
+  text-align: center;
+  height: 600px;
+  width: 400px;
+  opacity: 80%;
+  background-color: rgb(19, 22, 22);
+}
+
+/* .myForm {
+  margin-top: -100px;
+} */
+
+.visit {
+  border-radius: 10px;
+  font-size: large;
+  padding: 20px 30px;
+  border: none;
+  background-color: #525252;
+  color: #c2c2c2;
+  transition: ease-in-out 0.5s;
+}
+
+@font-face {
+  font-family: Rowdies;
+  src: url("C:/Users/tejas/Downloads/Rowdies-Light.ttf");
+}
+
+.visit:hover {
+  border: #242424;
+  background-color: #c7c7c7;
+  color: #111111;
+}
+
+.title {
+  color: #e6e6e6;
+  font-family: Rowdies;
+  padding: 30% 10%;
+  font-size: 50px;
+}
