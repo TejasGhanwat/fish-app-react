@@ -65,3 +65,49 @@
   padding: 10px;
   margin-bottom: 25px;
 }
+
+.order-enter {
+  background-color: red;
+  transition: 0.5s;
+  transform: translate(-120%);
+  max-height: 0;
+  padding: 0 !important;
+}
+
+.order-enter-active {
+  background-color: yellow;
+  max-height: 60px;
+  transform: translate(0);
+}
+
+.order-leave {
+  transition: 0.5s;
+  transform: translate(0);
+}
+
+.order-leave-active {
+  transform: translate(120%);
+  max-height: 0px;
+  padding: 0px;
+}
+
+.count-enter {
+  transition: all 2.5s;
+  transform: translateY(100%);
+}
+
+.count-enter-active {
+  transform: translateY(0);
+}
+
+.count-leave {
+  transition: all 2.5s;
+  position: absolute;
+  left: 0;
+  bottom: 0;
+  transform: translateY(0);
+}
+
+.count-leave-active {
+  transform: translateY(-100%);
+}

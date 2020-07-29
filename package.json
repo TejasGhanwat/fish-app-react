@@ -10,15 +10,19 @@
     "prop-types": "^15.7.2",
     "re-base": "^4.0.0",
     "react": "^16.13.1",
+    "react-addons-css-transition-group": "^15.6.2",
     "react-dom": "^16.13.1",
     "react-router-dom": "^5.2.0",
     "react-scripts": "3.4.1"
   },
   "scripts": {
     "start": "react-scripts start",
+    "watch": "concurrently --name `webpack,stylus` --prefix name `npm run start` `npm run styles:watch`",
     "build": "react-scripts build",
     "test": "react-scripts test",
-    "eject": "react-scripts eject"
+    "eject": "react-scripts eject",
+    "styles": "stylus -u autoprefixer-stylus ./src/css/style/styl -o ./src/css/style/css",
+    "styles.watch": "stylus -u autoprefixer-stylus -M ./src/css/style/styl -o ./src/css/style.css"
   },
   "eslintConfig": {
     "extends": "react-app"

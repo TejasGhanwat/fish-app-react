@@ -1,4 +1,5 @@
 import React, { Component } from "react";
+import CSSTransitionGroup from "react-addons-css-transition-group";
 
 class Order extends Component {
   constructor() {
@@ -23,8 +24,17 @@ class Order extends Component {
     }
     return (
       <li key={key}>
-        <span style={{ padding: 12 }}>
-          {count} lbs {fish.name}
+        <span>
+          <CSSTransitionGroup
+            component='span'
+            className='count'
+            transitionName='count'
+            transitionEnterTimeout={250}
+            transitionLeaveTimeout={250}
+          >
+            <span key={count}>{count} </span>
+          </CSSTransitionGroup>
+          lbs {fish.name}
           {removeButton}
         </span>
         <span className='price'>${count * fish.price}</span>
@@ -45,7 +55,15 @@ class Order extends Component {
     return (
       <div>
         <h2>Your Order</h2>
-        <ul>{orderIds.map(this.renderOrder)}</ul>
+        <CSSTransitionGroup
+          className='order'
+          component='ul'
+          transitionName='order'
+          transitionEnterTimeout={1000}
+          transitionLeaveTimeout={1000}
+        >
+          {orderIds.map(this.renderOrder)}
+        </CSSTransitionGroup>
         {/* <p>
           FishName:
           <br />
