@@ -135,11 +135,6 @@
   transition: ease-in-out 0.5s;
 }
 
-@font-face {
-  font-family: Rowdies;
-  src: url("C:/Users/tejas/Downloads/Rowdies-Light.ttf");
-}
-
 .visit:hover {
   background-color: #353535;
   color: #c2c2c2;
