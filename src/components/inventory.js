@@ -1,6 +1,5 @@
 import React, { Component } from "react";
 import AddFishForm from "./addFishForm";
-import fishes from "./samplefishes";
 
 class Inventory extends Component {
   constructor() {
