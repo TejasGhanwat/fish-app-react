@@ -32,6 +32,7 @@ class StorePicker extends Component {
               />
               <button className='visit' type='submit'>
                 Visit Store
+                <i style={{ marginLeft: 10 }} class='fa fa-arrow-right'></i>
               </button>
             </form>
           </div>

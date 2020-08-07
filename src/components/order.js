@@ -11,7 +11,12 @@ class Order extends Component {
     const fish = this.props.fishes[key];
     const count = this.props.order[key];
     const removeButton = (
-      <button onClick={() => this.props.removeFromOrder(key)}>X</button>
+      <button
+        style={{ border: "none", backgroundColor: "#9e9595" }}
+        onClick={() => this.props.removeFromOrder(key)}
+      >
+        X
+      </button>
     );
 
     if (!fish || fish.status === "unavailable") {
@@ -35,9 +40,9 @@ class Order extends Component {
             <span key={count}>{count} </span>
           </CSSTransitionGroup>
           lbs {fish.name}
-          {removeButton}
         </span>
         <span className='price'>${count * fish.price}</span>
+        {removeButton}
       </li>
     );
   }
@@ -54,7 +59,7 @@ class Order extends Component {
     }, 0);
     return (
       <div>
-        <h2>Your Order</h2>
+        <h4>Your Order</h4>
         <CSSTransitionGroup
           className='order'
           component='ul'
@@ -70,7 +75,7 @@ class Order extends Component {
           {orderIds}
         </p> */}
         <hr />
-        <h4>Total = ${total}/-</h4>
+        <p>Total = ${total}/-</p>
       </div>
     );
   }

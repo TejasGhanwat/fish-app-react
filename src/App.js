@@ -1,7 +1,6 @@
 import React, { Component } from "react";
 import "./App.css";
 import Fish from "./components/Fish";
-import Header from "./components/header";
 import Order from "./components/order";
 import Inventory from "./components/inventory";
 import SampleFishes from "./components/samplefishes.js";
@@ -107,8 +106,7 @@ class App extends Component {
   render() {
     return (
       <div className='App'>
-        <div className='components'>
-          {/* <Header /> */}
+        <div className='fishList'>
           <ul>
             {Object.keys(this.state.fishes).map((key) => (
               <Fish
@@ -120,21 +118,21 @@ class App extends Component {
             ))}
           </ul>
         </div>
-        <div className='components'>
-          <Order
-            fishes={this.state.fishes}
-            order={this.state.order}
-            params={this.props.params}
-            removeFromOrder={this.removeFromOrder}
-          />
-        </div>
-        <div className='components'>
+        <div className='inventory'>
           <Inventory
             addFish={this.addFish}
             loadSamples={this.loadSamples}
             fishes={this.state.fishes}
             updateFish={this.updateFish}
             removeFish={this.removeFish}
+          />
+        </div>
+        <div className='orders'>
+          <Order
+            fishes={this.state.fishes}
+            order={this.state.order}
+            params={this.props.params}
+            removeFromOrder={this.removeFromOrder}
           />
         </div>
       </div>

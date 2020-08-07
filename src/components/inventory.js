@@ -24,9 +24,10 @@ class Inventory extends Component {
   renderInventory(key) {
     const fish = this.props.fishes[key];
     return (
-      <div className='inventory' key={key}>
-        <p>{key}</p>
+      <div className='addToInventory' key={key}>
+        <button onClick={() => this.props.removeFish(key)}>X</button>
         <input
+          className='inputElems'
           type='text'
           value={fish.name}
           name='name'
@@ -35,6 +36,7 @@ class Inventory extends Component {
         />
         <br />
         <input
+          className='inputElems'
           type='text'
           value={fish.price}
           name='price'
@@ -43,6 +45,7 @@ class Inventory extends Component {
         />
         <br />
         <select
+          className='inputElems'
           value={fish.status}
           name='status'
           onChange={(e) => this.handleChange(e, key)}
@@ -52,6 +55,7 @@ class Inventory extends Component {
         </select>
         <br />
         <textarea
+          className='inputElems'
           onChange={(e) => this.handleChange(e, key)}
           name='desc'
           value={fish.desc}
@@ -59,6 +63,7 @@ class Inventory extends Component {
         ></textarea>
         <br />
         <input
+          className='inputElems'
           onChange={(e) => this.handleChange(e, key)}
           type='text'
           name='image'
@@ -66,7 +71,7 @@ class Inventory extends Component {
           placeholder='Fish Name'
         />
         <br />
-        <button onClick={() => this.props.removeFish(key)}>Remove Fish</button>
+
         <br />
       </div>
     );
@@ -74,10 +79,18 @@ class Inventory extends Component {
   render() {
     return (
       <div>
-        <h1>Inventory</h1>
+        <h4>Inventory</h4>
         {Object.keys(this.props.fishes).map(this.renderInventory)}
-        <AddFishForm addFish={this.props.addFish} />
-        <button onClick={this.props.loadSamples}>Load Sample Fishes</button>
+        <div style={{ display: "flex" }}>
+          <div className='addFishForm'>
+            <AddFishForm addFish={this.props.addFish} />
+          </div>
+          <div className='samples'>
+            <button className='samplesButton' onClick={this.props.loadSamples}>
+              Load Sample Fishes
+            </button>
+          </div>
+        </div>
       </div>
     );
   }
